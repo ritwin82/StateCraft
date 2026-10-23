@@ -58,7 +58,7 @@ pnpm dev
 ```
 
 Prisma models cover users, questions, attempts, misconceptions, mastery, and hint usage.
-Seeding upserts 120 verified questions (15 per topic: 5 easy, 5 medium, 5 hard); the same data is included in `data/questions.json`.
+Seeding upserts 150 verified questions (15 per topic: 5 easy, 5 medium, 5 hard); the same data is included in `data/questions.json`.
 `db:push` is for development; use reviewed Prisma migrations for deployed databases.
 
 Register an instructor with the correct class code, then explicitly grant the role:
@@ -122,7 +122,7 @@ apps/api/src/         Authenticated API, storage abstraction, Ollama hints
 apps/api/prisma/      Schema, seed, explicit instructor provisioning
 apps/api/test/        HTTP integration and hint-policy tests
 scripts/              Evaluation and browser checks
-data/                 120 reproducible reference questions
+data/                 150 reproducible reference questions
 artifacts/            Screenshots and measured reports
 ```
 
@@ -143,15 +143,15 @@ artifacts/            Screenshots and measured reports
   state is one atomic edit; its transitions require additional edits. Semantic labels use
   structural/language evidence and do not claim to know a learner's intent.
 - Question generation chooses the closest available difficulty among 16 seeded candidates.
-  The checked-in bank has 120 distinct prompts and no equivalent duplicate languages within
-  a topic. Each of the eight topics has five easy, five medium, and five hard questions.
+  The checked-in bank has 150 distinct prompts and no equivalent duplicate languages within
+  a topic. Each of the ten categories has five easy, five medium, and five hard questions.
   Easy corresponds to score 2, medium to 3, and hard to 4–5. Complexity is based on minimal
   DFA size (up to 4 / 7 / 12 / 16 states), with adjustments for larger alphabets and NFA
   savings on larger machines. Patterns reach eight symbols and counting moduli reach nine.
   References stay within the editor's 16-state limit. Versioned IDs preserve older stored
   questions; rerunning the database seed adds the new bank without deleting past attempts.
   Difficulty uses minimal DFA size, alphabet size, and constructive NFA upper bounds; it
-  does not claim to compute the minimum NFA. Seed data covers all eight topics.
+  does not claim to compute the minimum NFA. Seed data covers all ten categories.
 - Browser verification runs in a disposable worker with a five-second limit. API inputs
   are bounded to 16 DFA states or eight NFA states, four symbols, and 128 transitions.
 - Elo starts at 900, K=48, with question strength `difficulty × 300`. Correct score is
@@ -193,3 +193,5 @@ show a retryable error and preserve the learner's question.
 
 The user-selected warm light visual system is recorded in `DESIGN.md`. Fonts are
 self-hosted. Reduced motion, visible focus, and form-based graph editing are included.
+
+NFA practice and ε-NFA practice are separate categories, each with five Easy, five Medium, and five Hard questions. Select Question difficulty to choose a level or keep Adaptive difficulty. NFA exercises use nondeterministic suffix matching; ε-NFA exercises use epsilon moves to skip an optional prefix. Selecting these categories opens the matching machine type. Restart the API after deploying this question-generator update; existing in-memory accounts are not persisted across restarts.

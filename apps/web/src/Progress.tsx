@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { topics } from '@tutor/engine';
 import { api, useStudio } from './store';
 import type { Attempt } from './store';
-export const topicLabels: Record<string, string> = { ends: 'Ends with a pattern', starts: 'Starts with a pattern', contains: 'Contains a pattern', count: 'Symbol counting', length: 'String length', union: 'Union of languages', intersection: 'Intersection', complement: 'Complement' };
+export const topicLabels: Record<string, string> = { nfa: 'NFA practice', enfa: 'ε-NFA practice', ends: 'Ends with a pattern', starts: 'Starts with a pattern', contains: 'Contains a pattern', count: 'Symbol counting', length: 'String length', union: 'Union of languages', intersection: 'Intersection', complement: 'Complement' };
 export function Progress({ instructor = false }: { instructor?: boolean }) {
   const s = useStudio();
   const [data, setData] = useState({ attempts: s.attempts, mastery: s.mastery });

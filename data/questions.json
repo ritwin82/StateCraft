@@ -11378,5 +11378,1766 @@
     "level": "hard",
     "minimalStates": 10,
     "nfaSmaller": false
+  },
+  {
+    "id": "v2-nfa-2-100",
+    "topic": "nfa",
+    "prompt": "Build an NFA over {a, b} that accepts exactly strings ending with “aa”. Practice branching on the first symbol of the suffix, without ε-transitions.",
+    "reference": {
+      "kind": "NFA",
+      "states": [
+        "q0",
+        "q1",
+        "q2"
+      ],
+      "alphabet": [
+        "a",
+        "b"
+      ],
+      "start": "q0",
+      "finals": [
+        "q2"
+      ],
+      "transitions": [
+        {
+          "from": "q0",
+          "symbol": "a",
+          "to": "q0"
+        },
+        {
+          "from": "q0",
+          "symbol": "b",
+          "to": "q0"
+        },
+        {
+          "from": "q0",
+          "symbol": "a",
+          "to": "q1"
+        },
+        {
+          "from": "q1",
+          "symbol": "a",
+          "to": "q2"
+        }
+      ]
+    },
+    "difficulty": 2,
+    "level": "easy",
+    "seed": 100,
+    "minimalStates": 3,
+    "nfaSmaller": false
+  },
+  {
+    "id": "v2-nfa-2-101",
+    "topic": "nfa",
+    "prompt": "Build an NFA over {a, b} that accepts exactly strings ending with “aab”. Practice branching on the first symbol of the suffix, without ε-transitions.",
+    "reference": {
+      "kind": "NFA",
+      "states": [
+        "q0",
+        "q1",
+        "q2",
+        "q3"
+      ],
+      "alphabet": [
+        "a",
+        "b"
+      ],
+      "start": "q0",
+      "finals": [
+        "q3"
+      ],
+      "transitions": [
+        {
+          "from": "q0",
+          "symbol": "a",
+          "to": "q0"
+        },
+        {
+          "from": "q0",
+          "symbol": "b",
+          "to": "q0"
+        },
+        {
+          "from": "q0",
+          "symbol": "a",
+          "to": "q1"
+        },
+        {
+          "from": "q1",
+          "symbol": "a",
+          "to": "q2"
+        },
+        {
+          "from": "q2",
+          "symbol": "b",
+          "to": "q3"
+        }
+      ]
+    },
+    "difficulty": 2,
+    "level": "easy",
+    "seed": 101,
+    "minimalStates": 4,
+    "nfaSmaller": false
+  },
+  {
+    "id": "v2-nfa-2-102",
+    "topic": "nfa",
+    "prompt": "Build an NFA over {a, b} that accepts exactly strings ending with “ab”. Practice branching on the first symbol of the suffix, without ε-transitions.",
+    "reference": {
+      "kind": "NFA",
+      "states": [
+        "q0",
+        "q1",
+        "q2"
+      ],
+      "alphabet": [
+        "a",
+        "b"
+      ],
+      "start": "q0",
+      "finals": [
+        "q2"
+      ],
+      "transitions": [
+        {
+          "from": "q0",
+          "symbol": "a",
+          "to": "q0"
+        },
+        {
+          "from": "q0",
+          "symbol": "b",
+          "to": "q0"
+        },
+        {
+          "from": "q0",
+          "symbol": "a",
+          "to": "q1"
+        },
+        {
+          "from": "q1",
+          "symbol": "b",
+          "to": "q2"
+        }
+      ]
+    },
+    "difficulty": 2,
+    "level": "easy",
+    "seed": 102,
+    "minimalStates": 3,
+    "nfaSmaller": false
+  },
+  {
+    "id": "v2-nfa-2-103",
+    "topic": "nfa",
+    "prompt": "Build an NFA over {a, b} that accepts exactly strings ending with “aba”. Practice branching on the first symbol of the suffix, without ε-transitions.",
+    "reference": {
+      "kind": "NFA",
+      "states": [
+        "q0",
+        "q1",
+        "q2",
+        "q3"
+      ],
+      "alphabet": [
+        "a",
+        "b"
+      ],
+      "start": "q0",
+      "finals": [
+        "q3"
+      ],
+      "transitions": [
+        {
+          "from": "q0",
+          "symbol": "a",
+          "to": "q0"
+        },
+        {
+          "from": "q0",
+          "symbol": "b",
+          "to": "q0"
+        },
+        {
+          "from": "q0",
+          "symbol": "a",
+          "to": "q1"
+        },
+        {
+          "from": "q1",
+          "symbol": "b",
+          "to": "q2"
+        },
+        {
+          "from": "q2",
+          "symbol": "a",
+          "to": "q3"
+        }
+      ]
+    },
+    "difficulty": 2,
+    "level": "easy",
+    "seed": 103,
+    "minimalStates": 4,
+    "nfaSmaller": false
+  },
+  {
+    "id": "v2-nfa-2-105",
+    "topic": "nfa",
+    "prompt": "Build an NFA over {a, b} that accepts exactly strings ending with “abb”. Practice branching on the first symbol of the suffix, without ε-transitions.",
+    "reference": {
+      "kind": "NFA",
+      "states": [
+        "q0",
+        "q1",
+        "q2",
+        "q3"
+      ],
+      "alphabet": [
+        "a",
+        "b"
+      ],
+      "start": "q0",
+      "finals": [
+        "q3"
+      ],
+      "transitions": [
+        {
+          "from": "q0",
+          "symbol": "a",
+          "to": "q0"
+        },
+        {
+          "from": "q0",
+          "symbol": "b",
+          "to": "q0"
+        },
+        {
+          "from": "q0",
+          "symbol": "a",
+          "to": "q1"
+        },
+        {
+          "from": "q1",
+          "symbol": "b",
+          "to": "q2"
+        },
+        {
+          "from": "q2",
+          "symbol": "b",
+          "to": "q3"
+        }
+      ]
+    },
+    "difficulty": 2,
+    "level": "easy",
+    "seed": 105,
+    "minimalStates": 4,
+    "nfaSmaller": false
+  },
+  {
+    "id": "v2-nfa-3-100",
+    "topic": "nfa",
+    "prompt": "Build an NFA over {a, b} that accepts exactly strings ending with “aaaa”. Practice branching on the first symbol of the suffix, without ε-transitions.",
+    "reference": {
+      "kind": "NFA",
+      "states": [
+        "q0",
+        "q1",
+        "q2",
+        "q3",
+        "q4"
+      ],
+      "alphabet": [
+        "a",
+        "b"
+      ],
+      "start": "q0",
+      "finals": [
+        "q4"
+      ],
+      "transitions": [
+        {
+          "from": "q0",
+          "symbol": "a",
+          "to": "q0"
+        },
+        {
+          "from": "q0",
+          "symbol": "b",
+          "to": "q0"
+        },
+        {
+          "from": "q0",
+          "symbol": "a",
+          "to": "q1"
+        },
+        {
+          "from": "q1",
+          "symbol": "a",
+          "to": "q2"
+        },
+        {
+          "from": "q2",
+          "symbol": "a",
+          "to": "q3"
+        },
+        {
+          "from": "q3",
+          "symbol": "a",
+          "to": "q4"
+        }
+      ]
+    },
+    "difficulty": 3,
+    "level": "medium",
+    "seed": 100,
+    "minimalStates": 5,
+    "nfaSmaller": false
+  },
+  {
+    "id": "v2-nfa-3-101",
+    "topic": "nfa",
+    "prompt": "Build an NFA over {a, b} that accepts exactly strings ending with “aaba”. Practice branching on the first symbol of the suffix, without ε-transitions.",
+    "reference": {
+      "kind": "NFA",
+      "states": [
+        "q0",
+        "q1",
+        "q2",
+        "q3",
+        "q4"
+      ],
+      "alphabet": [
+        "a",
+        "b"
+      ],
+      "start": "q0",
+      "finals": [
+        "q4"
+      ],
+      "transitions": [
+        {
+          "from": "q0",
+          "symbol": "a",
+          "to": "q0"
+        },
+        {
+          "from": "q0",
+          "symbol": "b",
+          "to": "q0"
+        },
+        {
+          "from": "q0",
+          "symbol": "a",
+          "to": "q1"
+        },
+        {
+          "from": "q1",
+          "symbol": "a",
+          "to": "q2"
+        },
+        {
+          "from": "q2",
+          "symbol": "b",
+          "to": "q3"
+        },
+        {
+          "from": "q3",
+          "symbol": "a",
+          "to": "q4"
+        }
+      ]
+    },
+    "difficulty": 3,
+    "level": "medium",
+    "seed": 101,
+    "minimalStates": 5,
+    "nfaSmaller": false
+  },
+  {
+    "id": "v2-nfa-3-102",
+    "topic": "nfa",
+    "prompt": "Build an NFA over {a, b} that accepts exactly strings ending with “abba”. Practice branching on the first symbol of the suffix, without ε-transitions.",
+    "reference": {
+      "kind": "NFA",
+      "states": [
+        "q0",
+        "q1",
+        "q2",
+        "q3",
+        "q4"
+      ],
+      "alphabet": [
+        "a",
+        "b"
+      ],
+      "start": "q0",
+      "finals": [
+        "q4"
+      ],
+      "transitions": [
+        {
+          "from": "q0",
+          "symbol": "a",
+          "to": "q0"
+        },
+        {
+          "from": "q0",
+          "symbol": "b",
+          "to": "q0"
+        },
+        {
+          "from": "q0",
+          "symbol": "a",
+          "to": "q1"
+        },
+        {
+          "from": "q1",
+          "symbol": "b",
+          "to": "q2"
+        },
+        {
+          "from": "q2",
+          "symbol": "b",
+          "to": "q3"
+        },
+        {
+          "from": "q3",
+          "symbol": "a",
+          "to": "q4"
+        }
+      ]
+    },
+    "difficulty": 3,
+    "level": "medium",
+    "seed": 102,
+    "minimalStates": 5,
+    "nfaSmaller": false
+  },
+  {
+    "id": "v2-nfa-3-103",
+    "topic": "nfa",
+    "prompt": "Build an NFA over {a, b} that accepts exactly strings ending with “abaa”. Practice branching on the first symbol of the suffix, without ε-transitions.",
+    "reference": {
+      "kind": "NFA",
+      "states": [
+        "q0",
+        "q1",
+        "q2",
+        "q3",
+        "q4"
+      ],
+      "alphabet": [
+        "a",
+        "b"
+      ],
+      "start": "q0",
+      "finals": [
+        "q4"
+      ],
+      "transitions": [
+        {
+          "from": "q0",
+          "symbol": "a",
+          "to": "q0"
+        },
+        {
+          "from": "q0",
+          "symbol": "b",
+          "to": "q0"
+        },
+        {
+          "from": "q0",
+          "symbol": "a",
+          "to": "q1"
+        },
+        {
+          "from": "q1",
+          "symbol": "b",
+          "to": "q2"
+        },
+        {
+          "from": "q2",
+          "symbol": "a",
+          "to": "q3"
+        },
+        {
+          "from": "q3",
+          "symbol": "a",
+          "to": "q4"
+        }
+      ]
+    },
+    "difficulty": 3,
+    "level": "medium",
+    "seed": 103,
+    "minimalStates": 5,
+    "nfaSmaller": false
+  },
+  {
+    "id": "v2-nfa-3-104",
+    "topic": "nfa",
+    "prompt": "Build an NFA over {a, b} that accepts exactly strings ending with “abab”. Practice branching on the first symbol of the suffix, without ε-transitions.",
+    "reference": {
+      "kind": "NFA",
+      "states": [
+        "q0",
+        "q1",
+        "q2",
+        "q3",
+        "q4"
+      ],
+      "alphabet": [
+        "a",
+        "b"
+      ],
+      "start": "q0",
+      "finals": [
+        "q4"
+      ],
+      "transitions": [
+        {
+          "from": "q0",
+          "symbol": "a",
+          "to": "q0"
+        },
+        {
+          "from": "q0",
+          "symbol": "b",
+          "to": "q0"
+        },
+        {
+          "from": "q0",
+          "symbol": "a",
+          "to": "q1"
+        },
+        {
+          "from": "q1",
+          "symbol": "b",
+          "to": "q2"
+        },
+        {
+          "from": "q2",
+          "symbol": "a",
+          "to": "q3"
+        },
+        {
+          "from": "q3",
+          "symbol": "b",
+          "to": "q4"
+        }
+      ]
+    },
+    "difficulty": 3,
+    "level": "medium",
+    "seed": 104,
+    "minimalStates": 5,
+    "nfaSmaller": false
+  },
+  {
+    "id": "v2-nfa-4-100",
+    "topic": "nfa",
+    "prompt": "Build an NFA over {a, b} that accepts exactly strings ending with “aaaaaa”. Practice branching on the first symbol of the suffix, without ε-transitions.",
+    "reference": {
+      "kind": "NFA",
+      "states": [
+        "q0",
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5",
+        "q6"
+      ],
+      "alphabet": [
+        "a",
+        "b"
+      ],
+      "start": "q0",
+      "finals": [
+        "q6"
+      ],
+      "transitions": [
+        {
+          "from": "q0",
+          "symbol": "a",
+          "to": "q0"
+        },
+        {
+          "from": "q0",
+          "symbol": "b",
+          "to": "q0"
+        },
+        {
+          "from": "q0",
+          "symbol": "a",
+          "to": "q1"
+        },
+        {
+          "from": "q1",
+          "symbol": "a",
+          "to": "q2"
+        },
+        {
+          "from": "q2",
+          "symbol": "a",
+          "to": "q3"
+        },
+        {
+          "from": "q3",
+          "symbol": "a",
+          "to": "q4"
+        },
+        {
+          "from": "q4",
+          "symbol": "a",
+          "to": "q5"
+        },
+        {
+          "from": "q5",
+          "symbol": "a",
+          "to": "q6"
+        }
+      ]
+    },
+    "difficulty": 4,
+    "level": "hard",
+    "seed": 100,
+    "minimalStates": 7,
+    "nfaSmaller": false
+  },
+  {
+    "id": "v2-nfa-4-101",
+    "topic": "nfa",
+    "prompt": "Build an NFA over {a, b} that accepts exactly strings ending with “aababa”. Practice branching on the first symbol of the suffix, without ε-transitions.",
+    "reference": {
+      "kind": "NFA",
+      "states": [
+        "q0",
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5",
+        "q6"
+      ],
+      "alphabet": [
+        "a",
+        "b"
+      ],
+      "start": "q0",
+      "finals": [
+        "q6"
+      ],
+      "transitions": [
+        {
+          "from": "q0",
+          "symbol": "a",
+          "to": "q0"
+        },
+        {
+          "from": "q0",
+          "symbol": "b",
+          "to": "q0"
+        },
+        {
+          "from": "q0",
+          "symbol": "a",
+          "to": "q1"
+        },
+        {
+          "from": "q1",
+          "symbol": "a",
+          "to": "q2"
+        },
+        {
+          "from": "q2",
+          "symbol": "b",
+          "to": "q3"
+        },
+        {
+          "from": "q3",
+          "symbol": "a",
+          "to": "q4"
+        },
+        {
+          "from": "q4",
+          "symbol": "b",
+          "to": "q5"
+        },
+        {
+          "from": "q5",
+          "symbol": "a",
+          "to": "q6"
+        }
+      ]
+    },
+    "difficulty": 4,
+    "level": "hard",
+    "seed": 101,
+    "minimalStates": 7,
+    "nfaSmaller": false
+  },
+  {
+    "id": "v2-nfa-4-102",
+    "topic": "nfa",
+    "prompt": "Build an NFA over {a, b} that accepts exactly strings ending with “abbaab”. Practice branching on the first symbol of the suffix, without ε-transitions.",
+    "reference": {
+      "kind": "NFA",
+      "states": [
+        "q0",
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5",
+        "q6"
+      ],
+      "alphabet": [
+        "a",
+        "b"
+      ],
+      "start": "q0",
+      "finals": [
+        "q6"
+      ],
+      "transitions": [
+        {
+          "from": "q0",
+          "symbol": "a",
+          "to": "q0"
+        },
+        {
+          "from": "q0",
+          "symbol": "b",
+          "to": "q0"
+        },
+        {
+          "from": "q0",
+          "symbol": "a",
+          "to": "q1"
+        },
+        {
+          "from": "q1",
+          "symbol": "b",
+          "to": "q2"
+        },
+        {
+          "from": "q2",
+          "symbol": "b",
+          "to": "q3"
+        },
+        {
+          "from": "q3",
+          "symbol": "a",
+          "to": "q4"
+        },
+        {
+          "from": "q4",
+          "symbol": "a",
+          "to": "q5"
+        },
+        {
+          "from": "q5",
+          "symbol": "b",
+          "to": "q6"
+        }
+      ]
+    },
+    "difficulty": 4,
+    "level": "hard",
+    "seed": 102,
+    "minimalStates": 7,
+    "nfaSmaller": false
+  },
+  {
+    "id": "v2-nfa-4-103",
+    "topic": "nfa",
+    "prompt": "Build an NFA over {a, b} that accepts exactly strings ending with “abaaab”. Practice branching on the first symbol of the suffix, without ε-transitions.",
+    "reference": {
+      "kind": "NFA",
+      "states": [
+        "q0",
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5",
+        "q6"
+      ],
+      "alphabet": [
+        "a",
+        "b"
+      ],
+      "start": "q0",
+      "finals": [
+        "q6"
+      ],
+      "transitions": [
+        {
+          "from": "q0",
+          "symbol": "a",
+          "to": "q0"
+        },
+        {
+          "from": "q0",
+          "symbol": "b",
+          "to": "q0"
+        },
+        {
+          "from": "q0",
+          "symbol": "a",
+          "to": "q1"
+        },
+        {
+          "from": "q1",
+          "symbol": "b",
+          "to": "q2"
+        },
+        {
+          "from": "q2",
+          "symbol": "a",
+          "to": "q3"
+        },
+        {
+          "from": "q3",
+          "symbol": "a",
+          "to": "q4"
+        },
+        {
+          "from": "q4",
+          "symbol": "a",
+          "to": "q5"
+        },
+        {
+          "from": "q5",
+          "symbol": "b",
+          "to": "q6"
+        }
+      ]
+    },
+    "difficulty": 4,
+    "level": "hard",
+    "seed": 103,
+    "minimalStates": 7,
+    "nfaSmaller": false
+  },
+  {
+    "id": "v2-nfa-4-104",
+    "topic": "nfa",
+    "prompt": "Build an NFA over {a, b} that accepts exactly strings ending with “ababba”. Practice branching on the first symbol of the suffix, without ε-transitions.",
+    "reference": {
+      "kind": "NFA",
+      "states": [
+        "q0",
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5",
+        "q6"
+      ],
+      "alphabet": [
+        "a",
+        "b"
+      ],
+      "start": "q0",
+      "finals": [
+        "q6"
+      ],
+      "transitions": [
+        {
+          "from": "q0",
+          "symbol": "a",
+          "to": "q0"
+        },
+        {
+          "from": "q0",
+          "symbol": "b",
+          "to": "q0"
+        },
+        {
+          "from": "q0",
+          "symbol": "a",
+          "to": "q1"
+        },
+        {
+          "from": "q1",
+          "symbol": "b",
+          "to": "q2"
+        },
+        {
+          "from": "q2",
+          "symbol": "a",
+          "to": "q3"
+        },
+        {
+          "from": "q3",
+          "symbol": "b",
+          "to": "q4"
+        },
+        {
+          "from": "q4",
+          "symbol": "b",
+          "to": "q5"
+        },
+        {
+          "from": "q5",
+          "symbol": "a",
+          "to": "q6"
+        }
+      ]
+    },
+    "difficulty": 4,
+    "level": "hard",
+    "seed": 104,
+    "minimalStates": 7,
+    "nfaSmaller": false
+  },
+  {
+    "id": "v2-enfa-2-100",
+    "topic": "enfa",
+    "prompt": "Build an ε-NFA over {a, b} that accepts exactly “a” and “aa”. Use an ε-transition to skip the optional leading “a”.",
+    "reference": {
+      "kind": "ENFA",
+      "states": [
+        "q0",
+        "q1",
+        "q2"
+      ],
+      "alphabet": [
+        "a",
+        "b"
+      ],
+      "start": "q0",
+      "finals": [
+        "q2"
+      ],
+      "transitions": [
+        {
+          "from": "q0",
+          "symbol": "ε",
+          "to": "q1"
+        },
+        {
+          "from": "q0",
+          "symbol": "a",
+          "to": "q1"
+        },
+        {
+          "from": "q1",
+          "symbol": "a",
+          "to": "q2"
+        }
+      ]
+    },
+    "difficulty": 2,
+    "level": "easy",
+    "seed": 100,
+    "minimalStates": 4,
+    "nfaSmaller": true
+  },
+  {
+    "id": "v2-enfa-2-101",
+    "topic": "enfa",
+    "prompt": "Build an ε-NFA over {a, b} that accepts exactly “aa” and “baa”. Use an ε-transition to skip the optional leading “b”.",
+    "reference": {
+      "kind": "ENFA",
+      "states": [
+        "q0",
+        "q1",
+        "q2",
+        "q3"
+      ],
+      "alphabet": [
+        "a",
+        "b"
+      ],
+      "start": "q0",
+      "finals": [
+        "q3"
+      ],
+      "transitions": [
+        {
+          "from": "q0",
+          "symbol": "ε",
+          "to": "q1"
+        },
+        {
+          "from": "q0",
+          "symbol": "b",
+          "to": "q1"
+        },
+        {
+          "from": "q1",
+          "symbol": "a",
+          "to": "q2"
+        },
+        {
+          "from": "q2",
+          "symbol": "a",
+          "to": "q3"
+        }
+      ]
+    },
+    "difficulty": 2,
+    "level": "easy",
+    "seed": 101,
+    "minimalStates": 5,
+    "nfaSmaller": true
+  },
+  {
+    "id": "v2-enfa-2-102",
+    "topic": "enfa",
+    "prompt": "Build an ε-NFA over {a, b} that accepts exactly “a” and “ba”. Use an ε-transition to skip the optional leading “b”.",
+    "reference": {
+      "kind": "ENFA",
+      "states": [
+        "q0",
+        "q1",
+        "q2"
+      ],
+      "alphabet": [
+        "a",
+        "b"
+      ],
+      "start": "q0",
+      "finals": [
+        "q2"
+      ],
+      "transitions": [
+        {
+          "from": "q0",
+          "symbol": "ε",
+          "to": "q1"
+        },
+        {
+          "from": "q0",
+          "symbol": "b",
+          "to": "q1"
+        },
+        {
+          "from": "q1",
+          "symbol": "a",
+          "to": "q2"
+        }
+      ]
+    },
+    "difficulty": 2,
+    "level": "easy",
+    "seed": 102,
+    "minimalStates": 4,
+    "nfaSmaller": true
+  },
+  {
+    "id": "v2-enfa-2-103",
+    "topic": "enfa",
+    "prompt": "Build an ε-NFA over {a, b} that accepts exactly “ab” and “aab”. Use an ε-transition to skip the optional leading “a”.",
+    "reference": {
+      "kind": "ENFA",
+      "states": [
+        "q0",
+        "q1",
+        "q2",
+        "q3"
+      ],
+      "alphabet": [
+        "a",
+        "b"
+      ],
+      "start": "q0",
+      "finals": [
+        "q3"
+      ],
+      "transitions": [
+        {
+          "from": "q0",
+          "symbol": "ε",
+          "to": "q1"
+        },
+        {
+          "from": "q0",
+          "symbol": "a",
+          "to": "q1"
+        },
+        {
+          "from": "q1",
+          "symbol": "a",
+          "to": "q2"
+        },
+        {
+          "from": "q2",
+          "symbol": "b",
+          "to": "q3"
+        }
+      ]
+    },
+    "difficulty": 2,
+    "level": "easy",
+    "seed": 103,
+    "minimalStates": 5,
+    "nfaSmaller": true
+  },
+  {
+    "id": "v2-enfa-2-105",
+    "topic": "enfa",
+    "prompt": "Build an ε-NFA over {a, b} that accepts exactly “ab” and “bab”. Use an ε-transition to skip the optional leading “b”.",
+    "reference": {
+      "kind": "ENFA",
+      "states": [
+        "q0",
+        "q1",
+        "q2",
+        "q3"
+      ],
+      "alphabet": [
+        "a",
+        "b"
+      ],
+      "start": "q0",
+      "finals": [
+        "q3"
+      ],
+      "transitions": [
+        {
+          "from": "q0",
+          "symbol": "ε",
+          "to": "q1"
+        },
+        {
+          "from": "q0",
+          "symbol": "b",
+          "to": "q1"
+        },
+        {
+          "from": "q1",
+          "symbol": "a",
+          "to": "q2"
+        },
+        {
+          "from": "q2",
+          "symbol": "b",
+          "to": "q3"
+        }
+      ]
+    },
+    "difficulty": 2,
+    "level": "easy",
+    "seed": 105,
+    "minimalStates": 5,
+    "nfaSmaller": true
+  },
+  {
+    "id": "v2-enfa-3-100",
+    "topic": "enfa",
+    "prompt": "Build an ε-NFA over {a, b} that accepts exactly “aaa” and “aaaa”. Use an ε-transition to skip the optional leading “a”.",
+    "reference": {
+      "kind": "ENFA",
+      "states": [
+        "q0",
+        "q1",
+        "q2",
+        "q3",
+        "q4"
+      ],
+      "alphabet": [
+        "a",
+        "b"
+      ],
+      "start": "q0",
+      "finals": [
+        "q4"
+      ],
+      "transitions": [
+        {
+          "from": "q0",
+          "symbol": "ε",
+          "to": "q1"
+        },
+        {
+          "from": "q0",
+          "symbol": "a",
+          "to": "q1"
+        },
+        {
+          "from": "q1",
+          "symbol": "a",
+          "to": "q2"
+        },
+        {
+          "from": "q2",
+          "symbol": "a",
+          "to": "q3"
+        },
+        {
+          "from": "q3",
+          "symbol": "a",
+          "to": "q4"
+        }
+      ]
+    },
+    "difficulty": 3,
+    "level": "medium",
+    "seed": 100,
+    "minimalStates": 6,
+    "nfaSmaller": true
+  },
+  {
+    "id": "v2-enfa-3-101",
+    "topic": "enfa",
+    "prompt": "Build an ε-NFA over {a, b} that accepts exactly “aab” and “aaab”. Use an ε-transition to skip the optional leading “a”.",
+    "reference": {
+      "kind": "ENFA",
+      "states": [
+        "q0",
+        "q1",
+        "q2",
+        "q3",
+        "q4"
+      ],
+      "alphabet": [
+        "a",
+        "b"
+      ],
+      "start": "q0",
+      "finals": [
+        "q4"
+      ],
+      "transitions": [
+        {
+          "from": "q0",
+          "symbol": "ε",
+          "to": "q1"
+        },
+        {
+          "from": "q0",
+          "symbol": "a",
+          "to": "q1"
+        },
+        {
+          "from": "q1",
+          "symbol": "a",
+          "to": "q2"
+        },
+        {
+          "from": "q2",
+          "symbol": "a",
+          "to": "q3"
+        },
+        {
+          "from": "q3",
+          "symbol": "b",
+          "to": "q4"
+        }
+      ]
+    },
+    "difficulty": 3,
+    "level": "medium",
+    "seed": 101,
+    "minimalStates": 6,
+    "nfaSmaller": true
+  },
+  {
+    "id": "v2-enfa-3-102",
+    "topic": "enfa",
+    "prompt": "Build an ε-NFA over {a, b} that accepts exactly “abb” and “aabb”. Use an ε-transition to skip the optional leading “a”.",
+    "reference": {
+      "kind": "ENFA",
+      "states": [
+        "q0",
+        "q1",
+        "q2",
+        "q3",
+        "q4"
+      ],
+      "alphabet": [
+        "a",
+        "b"
+      ],
+      "start": "q0",
+      "finals": [
+        "q4"
+      ],
+      "transitions": [
+        {
+          "from": "q0",
+          "symbol": "ε",
+          "to": "q1"
+        },
+        {
+          "from": "q0",
+          "symbol": "a",
+          "to": "q1"
+        },
+        {
+          "from": "q1",
+          "symbol": "a",
+          "to": "q2"
+        },
+        {
+          "from": "q2",
+          "symbol": "b",
+          "to": "q3"
+        },
+        {
+          "from": "q3",
+          "symbol": "b",
+          "to": "q4"
+        }
+      ]
+    },
+    "difficulty": 3,
+    "level": "medium",
+    "seed": 102,
+    "minimalStates": 6,
+    "nfaSmaller": true
+  },
+  {
+    "id": "v2-enfa-3-103",
+    "topic": "enfa",
+    "prompt": "Build an ε-NFA over {a, b} that accepts exactly “aba” and “aaba”. Use an ε-transition to skip the optional leading “a”.",
+    "reference": {
+      "kind": "ENFA",
+      "states": [
+        "q0",
+        "q1",
+        "q2",
+        "q3",
+        "q4"
+      ],
+      "alphabet": [
+        "a",
+        "b"
+      ],
+      "start": "q0",
+      "finals": [
+        "q4"
+      ],
+      "transitions": [
+        {
+          "from": "q0",
+          "symbol": "ε",
+          "to": "q1"
+        },
+        {
+          "from": "q0",
+          "symbol": "a",
+          "to": "q1"
+        },
+        {
+          "from": "q1",
+          "symbol": "a",
+          "to": "q2"
+        },
+        {
+          "from": "q2",
+          "symbol": "b",
+          "to": "q3"
+        },
+        {
+          "from": "q3",
+          "symbol": "a",
+          "to": "q4"
+        }
+      ]
+    },
+    "difficulty": 3,
+    "level": "medium",
+    "seed": 103,
+    "minimalStates": 6,
+    "nfaSmaller": true
+  },
+  {
+    "id": "v2-enfa-3-104",
+    "topic": "enfa",
+    "prompt": "Build an ε-NFA over {a, b} that accepts exactly “aba” and “baba”. Use an ε-transition to skip the optional leading “b”.",
+    "reference": {
+      "kind": "ENFA",
+      "states": [
+        "q0",
+        "q1",
+        "q2",
+        "q3",
+        "q4"
+      ],
+      "alphabet": [
+        "a",
+        "b"
+      ],
+      "start": "q0",
+      "finals": [
+        "q4"
+      ],
+      "transitions": [
+        {
+          "from": "q0",
+          "symbol": "ε",
+          "to": "q1"
+        },
+        {
+          "from": "q0",
+          "symbol": "b",
+          "to": "q1"
+        },
+        {
+          "from": "q1",
+          "symbol": "a",
+          "to": "q2"
+        },
+        {
+          "from": "q2",
+          "symbol": "b",
+          "to": "q3"
+        },
+        {
+          "from": "q3",
+          "symbol": "a",
+          "to": "q4"
+        }
+      ]
+    },
+    "difficulty": 3,
+    "level": "medium",
+    "seed": 104,
+    "minimalStates": 6,
+    "nfaSmaller": true
+  },
+  {
+    "id": "v2-enfa-4-100",
+    "topic": "enfa",
+    "prompt": "Build an ε-NFA over {a, b} that accepts exactly “aaaaa” and “aaaaaa”. Use an ε-transition to skip the optional leading “a”.",
+    "reference": {
+      "kind": "ENFA",
+      "states": [
+        "q0",
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5",
+        "q6"
+      ],
+      "alphabet": [
+        "a",
+        "b"
+      ],
+      "start": "q0",
+      "finals": [
+        "q6"
+      ],
+      "transitions": [
+        {
+          "from": "q0",
+          "symbol": "ε",
+          "to": "q1"
+        },
+        {
+          "from": "q0",
+          "symbol": "a",
+          "to": "q1"
+        },
+        {
+          "from": "q1",
+          "symbol": "a",
+          "to": "q2"
+        },
+        {
+          "from": "q2",
+          "symbol": "a",
+          "to": "q3"
+        },
+        {
+          "from": "q3",
+          "symbol": "a",
+          "to": "q4"
+        },
+        {
+          "from": "q4",
+          "symbol": "a",
+          "to": "q5"
+        },
+        {
+          "from": "q5",
+          "symbol": "a",
+          "to": "q6"
+        }
+      ]
+    },
+    "difficulty": 4,
+    "level": "hard",
+    "seed": 100,
+    "minimalStates": 8,
+    "nfaSmaller": true
+  },
+  {
+    "id": "v2-enfa-4-101",
+    "topic": "enfa",
+    "prompt": "Build an ε-NFA over {a, b} that accepts exactly “aabab” and “aaabab”. Use an ε-transition to skip the optional leading “a”.",
+    "reference": {
+      "kind": "ENFA",
+      "states": [
+        "q0",
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5",
+        "q6"
+      ],
+      "alphabet": [
+        "a",
+        "b"
+      ],
+      "start": "q0",
+      "finals": [
+        "q6"
+      ],
+      "transitions": [
+        {
+          "from": "q0",
+          "symbol": "ε",
+          "to": "q1"
+        },
+        {
+          "from": "q0",
+          "symbol": "a",
+          "to": "q1"
+        },
+        {
+          "from": "q1",
+          "symbol": "a",
+          "to": "q2"
+        },
+        {
+          "from": "q2",
+          "symbol": "a",
+          "to": "q3"
+        },
+        {
+          "from": "q3",
+          "symbol": "b",
+          "to": "q4"
+        },
+        {
+          "from": "q4",
+          "symbol": "a",
+          "to": "q5"
+        },
+        {
+          "from": "q5",
+          "symbol": "b",
+          "to": "q6"
+        }
+      ]
+    },
+    "difficulty": 4,
+    "level": "hard",
+    "seed": 101,
+    "minimalStates": 8,
+    "nfaSmaller": true
+  },
+  {
+    "id": "v2-enfa-4-102",
+    "topic": "enfa",
+    "prompt": "Build an ε-NFA over {a, b} that accepts exactly “abbaa” and “babbaa”. Use an ε-transition to skip the optional leading “b”.",
+    "reference": {
+      "kind": "ENFA",
+      "states": [
+        "q0",
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5",
+        "q6"
+      ],
+      "alphabet": [
+        "a",
+        "b"
+      ],
+      "start": "q0",
+      "finals": [
+        "q6"
+      ],
+      "transitions": [
+        {
+          "from": "q0",
+          "symbol": "ε",
+          "to": "q1"
+        },
+        {
+          "from": "q0",
+          "symbol": "b",
+          "to": "q1"
+        },
+        {
+          "from": "q1",
+          "symbol": "a",
+          "to": "q2"
+        },
+        {
+          "from": "q2",
+          "symbol": "b",
+          "to": "q3"
+        },
+        {
+          "from": "q3",
+          "symbol": "b",
+          "to": "q4"
+        },
+        {
+          "from": "q4",
+          "symbol": "a",
+          "to": "q5"
+        },
+        {
+          "from": "q5",
+          "symbol": "a",
+          "to": "q6"
+        }
+      ]
+    },
+    "difficulty": 4,
+    "level": "hard",
+    "seed": 102,
+    "minimalStates": 8,
+    "nfaSmaller": true
+  },
+  {
+    "id": "v2-enfa-4-103",
+    "topic": "enfa",
+    "prompt": "Build an ε-NFA over {a, b} that accepts exactly “abaaa” and “babaaa”. Use an ε-transition to skip the optional leading “b”.",
+    "reference": {
+      "kind": "ENFA",
+      "states": [
+        "q0",
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5",
+        "q6"
+      ],
+      "alphabet": [
+        "a",
+        "b"
+      ],
+      "start": "q0",
+      "finals": [
+        "q6"
+      ],
+      "transitions": [
+        {
+          "from": "q0",
+          "symbol": "ε",
+          "to": "q1"
+        },
+        {
+          "from": "q0",
+          "symbol": "b",
+          "to": "q1"
+        },
+        {
+          "from": "q1",
+          "symbol": "a",
+          "to": "q2"
+        },
+        {
+          "from": "q2",
+          "symbol": "b",
+          "to": "q3"
+        },
+        {
+          "from": "q3",
+          "symbol": "a",
+          "to": "q4"
+        },
+        {
+          "from": "q4",
+          "symbol": "a",
+          "to": "q5"
+        },
+        {
+          "from": "q5",
+          "symbol": "a",
+          "to": "q6"
+        }
+      ]
+    },
+    "difficulty": 4,
+    "level": "hard",
+    "seed": 103,
+    "minimalStates": 8,
+    "nfaSmaller": true
+  },
+  {
+    "id": "v2-enfa-4-104",
+    "topic": "enfa",
+    "prompt": "Build an ε-NFA over {a, b} that accepts exactly “ababb” and “aababb”. Use an ε-transition to skip the optional leading “a”.",
+    "reference": {
+      "kind": "ENFA",
+      "states": [
+        "q0",
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5",
+        "q6"
+      ],
+      "alphabet": [
+        "a",
+        "b"
+      ],
+      "start": "q0",
+      "finals": [
+        "q6"
+      ],
+      "transitions": [
+        {
+          "from": "q0",
+          "symbol": "ε",
+          "to": "q1"
+        },
+        {
+          "from": "q0",
+          "symbol": "a",
+          "to": "q1"
+        },
+        {
+          "from": "q1",
+          "symbol": "a",
+          "to": "q2"
+        },
+        {
+          "from": "q2",
+          "symbol": "b",
+          "to": "q3"
+        },
+        {
+          "from": "q3",
+          "symbol": "a",
+          "to": "q4"
+        },
+        {
+          "from": "q4",
+          "symbol": "b",
+          "to": "q5"
+        },
+        {
+          "from": "q5",
+          "symbol": "b",
+          "to": "q6"
+        }
+      ]
+    },
+    "difficulty": 4,
+    "level": "hard",
+    "seed": 104,
+    "minimalStates": 8,
+    "nfaSmaller": true
   }
 ]

@@ -46,6 +46,14 @@ describe('API integration', () => {
     const registration = await request(app).post('/api/auth/register').send(credentials);
     expect(registration.status).toBe(200);
     const token: string = registration.body.token;
+    for (const topic of ['nfa', 'enfa']) for (const difficulty of ['easy', 'medium', 'hard']) {
+      const category = await request(app).get(`/api/questions/next?topic=${topic}&difficulty=${difficulty}`).auth(token, { type: 'bearer' });
+      expect(category.status).toBe(200);
+      expect(category.body.level).toBe(difficulty);
+      const saved = await store.question(category.body.id);
+      expect(saved?.reference.kind).toBe(topic === 'nfa' ? 'NFA' : 'ENFA');
+      expect(generateQuestion(category.body.topic, category.body.difficulty, category.body.seed).id).toBe(category.body.id);
+    }
     expect((await request(app).post('/api/auth/login').send({ ...credentials, password: 'incorrect-password' })).status).toBe(401);
     expect((await request(app).post('/api/auth/login').send(credentials)).status).toBe(200);
     expect((await request(app).post('/api/auth/register').send(credentials)).status).toBe(409);

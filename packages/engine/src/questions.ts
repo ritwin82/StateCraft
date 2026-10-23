@@ -1,13 +1,13 @@
 import type { Automaton } from './types.js';
 import { minimizeDfa } from './index.js';
 import { asDfa, checkEquivalence } from './verification.js';
-export const topics = ['ends', 'starts', 'contains', 'count', 'length', 'union', 'intersection', 'complement'] as const;
+export const topics = ['ends', 'starts', 'contains', 'count', 'length', 'union', 'intersection', 'complement', 'nfa', 'enfa'] as const;
 export type Topic = typeof topics[number];
 export type DifficultyLevel = 'easy' | 'medium' | 'hard';
 export function difficultyLevel(difficulty: number): DifficultyLevel {
   return difficulty <= 2 ? 'easy' : difficulty === 3 ? 'medium' : 'hard';
 }
-export const QUESTION_BANK_SIZE = 120;
+export const QUESTION_BANK_SIZE = 150;
 export type Question = { id: string; topic: Topic; prompt: string; reference: Automaton; difficulty: number; level: DifficultyLevel; seed: number; minimalStates: number; nfaSmaller: boolean };
 export function randomSource(seed: number): () => number {
   let state = seed >>> 0;
@@ -65,6 +65,27 @@ export function complementAutomaton(a: Automaton): Automaton {
 }
 export function generateQuestion(topic: Topic, targetDifficulty: number, seed: number, version: 'v1' | 'v2' = 'v2'): Question {
   if (!topics.includes(topic) || !Number.isFinite(targetDifficulty)) throw new Error('Invalid question parameters.');
+  if (topic === 'nfa' || topic === 'enfa') {
+    const level = difficultyLevel(targetDifficulty);
+    const difficulty = level === 'easy' ? 2 : level === 'medium' ? 3 : 4;
+    const random = randomSource(seed);
+    const length = level === 'easy' ? 2 + Math.abs(seed % 2) : level === 'medium' ? 4 : 6;
+    const word = Array.from({ length: topic === 'enfa' ? length - 1 : length }, () => random() < .5 ? 'a' : 'b').join('');
+    const letters = [...word];
+    const optional = random() < .5 ? 'a' : 'b';
+    const states = Array.from({ length: letters.length + (topic === 'enfa' ? 2 : 1) }, (_, i) => `q${i}`);
+    const transitions: Automaton['transitions'] = topic === 'nfa'
+      ? [{ from: 'q0', symbol: 'a', to: 'q0' }, { from: 'q0', symbol: 'b', to: 'q0' }]
+      : [{ from: 'q0', symbol: 'ε', to: 'q1' }, { from: 'q0', symbol: optional, to: 'q1' }];
+    const offset = topic === 'enfa' ? 1 : 0;
+    letters.forEach((symbol, i) => transitions.push({ from: `q${i + offset}`, symbol, to: `q${i + offset + 1}` }));
+    const reference: Automaton = { kind: topic === 'nfa' ? 'NFA' : 'ENFA', states, alphabet: ['a', 'b'], start: 'q0', finals: [states.at(-1)!], transitions };
+    const minimalStates = minimizeDfa(asDfa(reference)).automaton.states.length;
+    const prompt = topic === 'nfa'
+      ? `Build an NFA over {a, b} that accepts exactly strings ending with “${word}”. Practice branching on the first symbol of the suffix, without ε-transitions.`
+      : `Build an ε-NFA over {a, b} that accepts exactly “${word}” and “${optional}${word}”. Use an ε-transition to skip the optional leading “${optional}”.`;
+    return { id: `v2-${topic}-${difficulty}-${seed}`, topic, prompt, reference, difficulty, level, seed, minimalStates, nfaSmaller: states.length < minimalStates };
+  }
   const random = randomSource(seed);
   let best: Question | undefined;
   for (let attempt = 0; attempt < 16; attempt++) {

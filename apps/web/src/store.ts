@@ -13,34 +13,34 @@ type State = {
   automaton: Automaton; positions: Record<string, Position>; selected: string | null; question: Question;
   undo: Automaton[]; result: EquivalenceResult | null; attempts: Attempt[]; mastery: Record<string, number>;
   mode: 'practice' | 'debug'; faulty: Automaton | null; witnessVerified: boolean; hintLevel: number;
-  session: Session | null; remoteQuestionId: string | null; locked: boolean;
+  difficultyChoice: 'adaptive' | 'easy' | 'medium' | 'hard'; session: Session | null; remoteQuestionId: string | null; locked: boolean;
   setGraph: (a: Automaton, record?: boolean) => void; setPosition: (state: string, position: Position) => void;
-  select: (state: string | null) => void; undoEdit: () => void; newQuestion: (topic?: Topic, mode?: 'practice' | 'debug') => Promise<void>;
+  select: (state: string | null) => void; undoEdit: () => void; newQuestion: (topic?: Topic, mode?: 'practice' | 'debug', difficultyChoice?: State['difficultyChoice']) => Promise<void>;
   recordAttempt: (result: EquivalenceResult, misconception: string) => void;
   setSession: (session: Session | null) => void;
 };
 export const useStudio = create<State>((set, get) => ({
   automaton: starter, positions: layout(starter), selected: null, question: initialQuestion, undo: [], result: null,
   attempts: read<Attempt[]>('statecraft-attempts', []), mastery: read<Record<string, number>>('statecraft-mastery', {}),
-  mode: 'practice', faulty: null, witnessVerified: false, hintLevel: 0, session: read<Session | null>('statecraft-session', null), remoteQuestionId: null, locked: false,
+  difficultyChoice: 'adaptive', mode: 'practice', faulty: null, witnessVerified: false, hintLevel: 0, session: read<Session | null>('statecraft-session', null), remoteQuestionId: null, locked: false,
   setGraph: (a, record = true) => set(s => s.locked && record ? {} : ({ automaton: a, result: null, selected: a.states.includes(s.selected ?? '') ? s.selected : null, undo: record ? [...s.undo.slice(-29), s.automaton] : s.undo, positions: { ...layout(a), ...s.positions } })),
   setPosition: (state, position) => set(s => ({ positions: { ...s.positions, [state]: position } })),
   select: selected => set({ selected }),
   undoEdit: () => { const s = get(); const a = s.undo.at(-1); if (a && !s.locked) set({ automaton: a, undo: s.undo.slice(0, -1), selected: a.states.includes(s.selected ?? '') ? s.selected : null, result: null }); },
-  newQuestion: async (topic, mode = get().mode) => {
+  newQuestion: async (topic, mode = get().mode, difficultyChoice = get().difficultyChoice) => {
     const requestId = ++questionRequest;
     const s = get(); const chosen = topic ?? s.question.topic;
-    let question = generateQuestion(chosen, targetDifficulty(s.mastery[chosen] ?? 900), Math.floor(Math.random() * 100000));
+    let question = generateQuestion(chosen, difficultyChoice === 'adaptive' ? targetDifficulty(s.mastery[chosen] ?? 900) : difficultyChoice === 'easy' ? 2 : difficultyChoice === 'medium' ? 3 : 4, Math.floor(Math.random() * 100000));
     let remoteQuestionId: string | null = null;
     if (s.session) {
-      const q = await api<Omit<Question, 'reference'> & { alphabet: string[] }>(`/questions/next?topic=${chosen}`);
+      const q = await api<Omit<Question, 'reference'> & { alphabet: string[] }>(`/questions/next?topic=${chosen}&difficulty=${difficultyChoice}`);
       question = generateQuestion(q.topic, q.difficulty, q.seed, q.id.startsWith('v2-') ? 'v2' : 'v1');
       if (question.id !== q.id) throw new Error('Question version mismatch. Refresh the application.');
       remoteQuestionId = q.id;
     }
     const faulty = mode === 'debug' ? mutateAutomaton(question.reference, question.seed, 2).automaton : null;
-    const automaton: Automaton = faulty ?? { kind: s.automaton.kind, states: ['q0'], alphabet: question.reference.alphabet, start: 'q0', finals: [], transitions: [] };
-    if (requestId === questionRequest) set({ question, automaton, positions: layout(automaton), selected: null, undo: [], result: null, hintLevel: 0, mode, faulty, witnessVerified: false, remoteQuestionId, locked: false });
+    const automaton: Automaton = faulty ?? { kind: chosen === 'nfa' ? 'NFA' : chosen === 'enfa' ? 'ENFA' : s.automaton.kind, states: ['q0'], alphabet: question.reference.alphabet, start: 'q0', finals: [], transitions: [] };
+    if (requestId === questionRequest) set({ difficultyChoice, question, automaton, positions: layout(automaton), selected: null, undo: [], result: null, hintLevel: 0, mode, faulty, witnessVerified: false, remoteQuestionId, locked: false });
   },
   recordAttempt: (result, misconception) => {
     const s = get(); const score = result.equivalent ? Math.max(.2, 1 - s.hintLevel * .15) : 0;

@@ -48,7 +48,8 @@ export function createApp(store = new Store(), hints = new HintService()): expre
     const topic = z.enum(topics).parse(req.query.topic ?? 'ends');
     const userId = String(res.locals.user.id);
     const { mastery, attempts } = await store.progress(userId);
-    const q = generateQuestion(topic, targetDifficulty(mastery[topic] ?? 900), Date.now() % 1000000 + attempts.length);
+    const level = z.enum(['adaptive', 'easy', 'medium', 'hard']).parse(req.query.difficulty ?? 'adaptive');
+    const q = generateQuestion(topic, level === 'adaptive' ? targetDifficulty(mastery[topic] ?? 900) : level === 'easy' ? 2 : level === 'medium' ? 3 : 4, Date.now() % 1000000 + attempts.length);
     await store.saveQuestion(q);
     const { reference, ...publicQuestion } = q;
     res.json({ ...publicQuestion, alphabet: reference.alphabet });
