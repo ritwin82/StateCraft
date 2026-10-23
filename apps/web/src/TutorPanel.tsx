@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { simulate } from '@tutor/engine';
 import { useStudio, api } from './store';
 import { verify } from './verify';
+import { TutorChat } from './TutorChat';
 import type { Automaton, Edit } from '@tutor/engine';
 function editText(e: Edit): string {
   if (e.type === 'toggleFinal') return `Toggle acceptance of ${e.state}.`;
@@ -36,6 +37,7 @@ export function TutorPanel({ onCounterexample }: { onCounterexample: (word: stri
     <section className="hint-section"><div className="panel-title"><h3>A nudge, when you need it</h3></div><p>Start with an idea. Reveal a little more only when you’re ready.</p><div className="hint-levels" aria-label={`Hint level ${s.hintLevel} of 5`}>{[1, 2, 3, 4, 5].map(n => <span key={n} className={n <= s.hintLevel ? 'filled' : ''}>{n}</span>)}</div><button className="hint-button" disabled={busy || s.hintLevel >= 5} onClick={() => void getHint()}>{busy ? 'Preparing your hint…' : s.hintLevel === 5 ? 'All hints revealed' : s.hintLevel ? 'Reveal the next hint' : 'Give me a hint'}</button>
       {hint && <div className="hint-copy" aria-live="polite"><p>{hint}</p><span>{source}</span></div>}<small>Hints reduce the attempt score. Learning still comes first.</small>
     </section>{error && <p className="error" role="alert">{error}</p>}
+    <TutorChat/>
     <div className="verification-note"><p><strong>Grounded in formal verification.</strong><br/>An automata engine checks your work. AI only helps explain it.</p></div>
   </aside>;
 }

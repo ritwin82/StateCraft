@@ -8,6 +8,7 @@ import { checkEquivalence, classifyMisconception, diagnose, generateQuestion, mu
 import type { Automaton } from '@tutor/engine';
 import { Store } from './store.js';
 import { HintService } from './hints.js';
+import { createChatRouter } from './chat.js';
 const automatonSchema = z.object({ kind: z.enum(['DFA', 'NFA', 'ENFA']), states: z.array(z.string().min(1).max(32)).min(1).max(16), alphabet: z.array(z.string().min(1).max(2)).max(4), start: z.string(), finals: z.array(z.string()).max(16), transitions: z.array(z.object({ from: z.string(), symbol: z.string(), to: z.string() })).max(128) }).superRefine((a, ctx) => {
   if (a.kind !== 'DFA' && a.states.length > 8) ctx.addIssue({ code: 'custom', message: 'NFA and ε-NFA are limited to eight states for bounded verification.' });
   for (const issue of validateAutomaton(a)) ctx.addIssue({ code: 'custom', message: issue.message });
@@ -22,6 +23,7 @@ export function createApp(store = new Store(), hints = new HintService()): expre
   app.use(helmet(), express.json({ limit: '128kb' }));
   app.use('/api', rateLimit({ windowMs: 60000, limit: 120, standardHeaders: 'draft-8', legacyHeaders: false }));
   app.get('/api/health', (_req, res) => res.json({ ok: true, storage: store.db ? 'postgresql' : 'memory', model: process.env.OLLAMA_MODEL ?? 'gemma3:4b' }));
+  app.use('/api/chat', createChatRouter());
   app.post('/api/auth/:action', rateLimit({ windowMs: 60000, limit: 15 }), async (req, res) => {
     const { email, password } = credentials.parse(req.body);
     let user = await store.user(email);

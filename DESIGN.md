@@ -67,4 +67,10 @@ Do not introduce any of the following:
 Circular states, accepting-state rings, static mathematical arrows, and functional progress bars are permitted. No new screens or replacement product workflows are part of this refinement.
 
 ## Verification
-Source/dependency scans, type checks, production build and 68 tests pass. Browser checks cover deletion, undo, multi-symbol and epsilon transitions, keyboard selection, simulation, hints, account forms and saved scoring. Design inspection covers 1440px, 390px, and 720px CSS reflow (equivalent to a 1440px viewport at 200%). No horizontal overflow or undersized buttons/fields was found. Text token contrast is at least 5.50:1 on the three light surfaces; border contrast is at least 3.03:1. Audit evidence is recorded in artifacts/design-audit.json. This is a bounded application audit, not full accessibility certification. The bundled Impeccable detector was unavailable.
+The tutor now includes a plain-text doubt chat below progressive hints. It reuses the
+existing colors, 4px form corners, 44px actions and supporting typography. A bounded,
+scrollable conversation shows speaker labels, followed by a labeled question field,
+Ask Ollama, Stop reply and Clear chat controls. Replies are identified as AI explanations;
+chat does not modify scoring. The layout stacks within the existing tutor panel.
+
+Source/dependency scans, type checks, production build and 71 tests pass. Browser checks cover deletion, undo, multi-symbol and epsilon transitions, keyboard selection, simulation, hints, account forms and saved scoring. Design inspection covers 1440px, 390px, and 720px CSS reflow (equivalent to a 1440px viewport at 200%). No horizontal overflow or undersized buttons/fields was found. Text token contrast is at least 5.50:1 on the three light surfaces; border contrast is at least 3.03:1. Audit evidence is recorded in artifacts/design-audit.json. This is a bounded application audit, not full accessibility certification. The bundled Impeccable detector was unavailable.

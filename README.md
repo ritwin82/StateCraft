@@ -179,6 +179,17 @@ artifacts/            Screenshots and measured reports
 6. Try **Debug the machine**: prove failure with a witness, then repair it.
 7. Register/sign in for saved challenges and Ollama hints; reveal levels gradually.
 8. With PostgreSQL and an instructor role, review **My class**.
+9. Below hints, use **Ask a doubt** to chat with local Ollama. Ask follow-up questions,
+   stop a pending reply, or clear the conversation. Chat works without an account and
+   does not change hint scores. Conversations reset when leaving the workspace or
+   loading another challenge; the latest five exchanges are sent with each question.
+
+The chat uses `OLLAMA_BASE_URL` and `OLLAMA_MODEL` (default `gemma3:4b`). The API exposes
+`POST /api/chat`; Vite mounts the same handler locally during development, allowing
+chat without restarting an API that holds temporary account data. Restart the API
+after deploying backend changes. Chat explanations are model-generated; machine
+correctness is still determined by the engine. Offline or timed-out chat requests
+show a retryable error and preserve the learner's question.
 
 The user-selected warm light visual system is recorded in `DESIGN.md`. Fonts are
 self-hosted. Reduced motion, visible focus, and form-based graph editing are included.

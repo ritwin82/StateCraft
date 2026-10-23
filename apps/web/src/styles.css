@@ -174,6 +174,21 @@ th,td { padding: 12px 10px; border-bottom: 1px solid var(--border); font-variant
 .verification-note { border-top: 1px solid var(--border); padding-top: 22px; color: var(--muted); }
 .verification-note p { font-size: 13px; }
 .verification-note strong { font-weight: 600; color: var(--ink); }
+.tutor-chat { grid-column: 1/-1; padding: 24px 0; border-top: 1px solid var(--border); min-width: 0; }
+.chat-intro { color: var(--muted); font-size: 14px; margin: 10px 0 18px; }
+.tutor-chat form { display: flex; flex-direction: column; gap: 8px; }
+.tutor-chat label { font-size: 14px; }
+.tutor-chat textarea { width: 100%; min-height: 100px; resize: vertical; font: inherit; font-size: 15px; line-height: 1.6; padding: 10px 12px; border: 1px solid var(--border); border-radius: 4px; background: var(--panel); color: var(--ink); }
+.tutor-chat textarea::placeholder { color: var(--muted); opacity: 1; }
+.tutor-chat textarea:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.chat-actions { display: flex; justify-content: flex-end; }
+.chat-actions button { font-size: 14px; }
+.chat-log { max-height: 380px; overflow-y: auto; overscroll-behavior: contain; margin-bottom: 18px; scrollbar-gutter: stable; }
+.chat-message { padding: 14px 0; border-bottom: 1px solid var(--border); }
+.chat-message strong { font-size: 13px; color: var(--accent); }
+.chat-message.user strong { color: var(--ink); }
+.chat-message p { font-size: 15px; margin-top: 6px; white-space: pre-wrap; overflow-wrap: anywhere; }
+.chat-status,.chat-note { display: block; color: var(--muted); font-size: 13px; margin-block: 12px; }
 .result-box { padding: 16px; margin-bottom: 24px; border: 2px solid var(--ink); }
 .result-box.correct { border-color: var(--accent); }
 .result-box h3 { margin-bottom: 8px; }
