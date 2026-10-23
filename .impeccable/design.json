@@ -1,12 +1,17 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-23T09:20:00Z",
+  "generatedAt": "2026-10-23T14:00:00Z",
   "title": "Design System: Statecraft",
+  "colors": { "page": "#E8E4DA", "panel": "#F1EDE3", "canvas": "#E2DFD5", "ink": "#252B29", "muted": "#505853", "accent": "#235C50", "border": "#7B8078" },
   "extensions": {
-    "shadows": [{ "name": "floating-inspector", "value": "0 12px 32px -14px #173d3b40", "purpose": "Transient graph editing controls." }],
-    "motion": [{ "name": "token-arrive", "value": "320ms cubic-bezier(.2,.9,.3,1)", "purpose": "Reveal active simulation states; disabled for reduced motion." }],
-    "breakpoints": [{ "name": "compact-rail", "value": "1000px" }, { "name": "stacked-workspace", "value": "780px" }, { "name": "top-navigation", "value": "560px" }]
+    "shadows": [],
+    "motion": [],
+    "radii": { "section": 0, "control": 4, "inspector": 6 },
+    "touchTargetMinimum": 44,
+    "breakpoints": [{ "name": "stacked-workspace", "value": "1200px" }, { "name": "top-navigation", "value": "780px" }, { "name": "single-column", "value": "560px" }],
+    "restrictions": ["No gradients or radial orbs", "No Lucide or sparkle icons", "No pure white surfaces", "No rainbow or multicolor UI", "No shadows", "No three feature cards in a row", "No emoji UI", "No glass or blur", "No authored em dashes", "No Inter, Geist, or Space Grotesk", "No decorative colored left stripes", "No fake testimonials or claims", "No bento grids", "No terminal UI", "No contrast-copy formula", "No decorative grids", "No neon", "No checkmark bullets", "No three-tier pricing", "No fake demos", "No oversized radii", "No purple-and-black scheme", "No animated arrows or decorative hover motion", "No generic pastel palette", "No dotted canvas or ornamental sidebar diagrams", "No token entrance animation"],
+    "exceptions": ["Mathematical state circles and double rings", "Static arrowheads", "Functional progress bars", "Timed simulation and construction with immediate state highlighting"]
   },
   "components": [],
-  "narrative": { "northStar": "A calm graph workspace that makes every state and transition legible." }
+  "narrative": { "northStar": "A flat, warm technical workspace with readable controls and a clear automaton canvas.", "restrictionsSource": "DESIGN.md" }
 }

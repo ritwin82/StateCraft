@@ -1,0 +1,32 @@
+import assert from 'node:assert/strict';
+import { chromium } from '@playwright/test';
+const browser = await chromium.launch({ channel: 'msedge', headless: true });
+try {
+  const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } });
+  const errors = [];
+  page.on('pageerror', e => errors.push(e.message));
+  await page.goto('http://127.0.0.1:5173/');
+  await page.getByRole('button', { name: 'Edit transitions from q0 to q1: a', exact: true }).click();
+  await page.getByRole('button', { name: 'Delete transition q0 a q1', exact: true }).click();
+  assert.equal(await page.locator('.react-flow__node').count(), 3);
+  assert.equal(await page.getByRole('button', { name: 'Edit transitions from q0 to q1: a', exact: true }).count(), 0);
+  await page.getByRole('button', { name: 'Undo edit' }).click();
+  await page.getByRole('button', { name: 'Edit transitions from q0 to q1: a', exact: true }).waitFor();
+  const machine = { kind: 'ENFA', states: ['q0', 'q1', 'q2'], alphabet: ['a', 'b'], start: 'q0', finals: ['q2'], transitions: [{ from: 'q0', symbol: 'a', to: 'q0' }, { from: 'q0', symbol: 'b', to: 'q0' }, { from: 'q0', symbol: 'ε', to: 'q1' }, { from: 'q1', symbol: 'a', to: 'q2' }] };
+  await page.locator('input[type=file]').setInputFiles({ name: 'machine.json', mimeType: 'application/json', buffer: Buffer.from(JSON.stringify(machine)) });
+  await page.getByRole('button', { name: 'Edit transitions from q0 to q0: a, b', exact: true }).click();
+  await page.getByRole('button', { name: 'Delete transition q0 a q0', exact: true }).click();
+  await page.getByRole('button', { name: 'Edit transitions from q0 to q0: b', exact: true }).waitFor();
+  assert.equal(await page.locator('.react-flow__node').count(), 3);
+  await page.getByRole('button', { name: 'Delete transition q0 b q0', exact: true }).click();
+  assert.equal(await page.locator('.react-flow__node').count(), 3);
+  const epsilon = page.getByRole('button', { name: 'Edit transitions from q0 to q1: ε', exact: true });
+  await epsilon.focus(); await page.keyboard.press('Enter');
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.getByRole('button', { name: 'Delete transition q0 ε q1', exact: true }).click();
+  assert.equal(await page.locator('.react-flow__node').count(), 3);
+  assert.equal(await epsilon.count(), 0);
+  assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false);
+  assert.deepEqual(errors, []);
+  console.log('Passed: delete transition, preserve nodes, undo, individual grouped symbols, self-loops, epsilon, keyboard selection, mobile.');
+} finally { await browser.close(); }

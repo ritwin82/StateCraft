@@ -68,7 +68,7 @@ await reloadQuestion;
 await page.waitForLoadState('networkidle');
 const publicQuestion = latestQuestion;
 if (!publicQuestion?.id) throw new Error('Authenticated reload did not load a question.');
-const reference = generateQuestion(publicQuestion.topic, publicQuestion.difficulty, publicQuestion.seed).reference;
+const reference = generateQuestion(publicQuestion.topic, publicQuestion.difficulty, publicQuestion.seed, publicQuestion.id.startsWith('v2-') ? 'v2' : 'v1').reference;
 const hintResponse = page.waitForResponse(r => r.url().includes('/api/hints'), { timeout: 45000 });
 await page.getByRole('button', { name: 'Give me a hint' }).click();
 const hint = await (await hintResponse).json();

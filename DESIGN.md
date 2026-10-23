@@ -1,30 +1,31 @@
 ---
 name: Statecraft
-description: A calm workspace for making abstract machines tangible.
+description: A flat, warm technical workspace for automata learning.
 colors:
-  primary: "#1c7162"
-  rail: "#153f3a"
-  paper: "#f3f4ef"
-  canvas: "#fafbf8"
-  surface: "#ffffff"
-  ink: "#203c37"
-  muted: "#61716a"
-  border: "#dfe5dc"
+  primary: "#235C50"
+  rail: "#252B29"
+  paper: "#E8E4DA"
+  canvas: "#E2DFD5"
+  surface: "#F1EDE3"
+  ink: "#252B29"
+  muted: "#505853"
+  border: "#7B8078"
 typography:
   heading:
     fontFamily: "Manrope, sans-serif"
-    fontSize: "29px"
+    fontSize: "30px"
     fontWeight: 700
-    lineHeight: 1.28
-    letterSpacing: "-1px"
+    lineHeight: 1.3
+    letterSpacing: "-0.025em"
   body:
     fontFamily: "DM Sans, sans-serif"
-    fontSize: "14px"
+    fontSize: "16px"
     fontWeight: 400
     lineHeight: 1.7
 rounded:
-  control: "8px"
-  panel: "14px"
+  control: "4px"
+  panel: "0px"
+  inspector: "6px"
 spacing:
   small: "8px"
   medium: "16px"
@@ -37,39 +38,33 @@ components:
     padding: "12px 18px"
 ---
 
-## Overview
-The user chose a warm light workspace with a dark rail and teal highlights.
-The automaton is the primary graphic; decoration never competes with machine state.
+## Visual direction
+Preserve the working graph editor and learning workflows. Warm stone, parchment, mineral grey, charcoal and one deep teal accent form the complete palette. Flat surfaces are separated by spacing and borders. Shared CSS variables apply to React Flow as well as application components.
 
-## Colors
-Forest anchors navigation; paper supports sustained reading. White panels and the light
-canvas separate tasks using borders. Teal identifies actions; amber marks active tokens.
+## Type and layout
+Self-hosted Manrope headings and DM Sans body text. Body copy is 15–16px, supporting copy and controls 13–14px. The desktop rail is 222px, with a flexible canvas and 302px tutor panel. At 1200px the tutor stacks below the graph. At 780px navigation moves above the workspace and keeps visible labels. At 560px supporting columns stack. Progress totals are an inline text summary, with genuine mastery bars and attempt history.
 
-## Typography
-Self-hosted Manrope headings pair with DM Sans interface text. State names use the heading
-face. Problem statements remain regular weight; toolbars and metadata are compact.
+## Interaction and accessibility
+Buttons and fields have at least 44px touch targets. Transition label targets stay 44px at every canvas zoom. State labels remain legible when the graph is zoomed out. Keyboard focus uses a 3px outline. Inspectors wrap and scroll within narrow canvases. Keep transition forms, transition tables, node editing, transition-only deletion, undo, and keyboard selection.
 
-## Layout
-Desktop has a 226px fixed rail, flexible graph column, and 294px tutor column. At 1000px
-the rail collapses to icons; at 780px the tutor stacks; at 560px navigation moves to the top.
+Active states change immediately to teal with parchment text. Accepting states use double rings. Static arrowheads express transitions. Timed simulation and subset construction remain functional; no edge, token, or hover animation is used. Outcome labels and border weights carry status, without additional colors.
 
-## Elevation & Depth
-Resting panels use one-pixel borders. Floating inspectors use
-`0 12px 32px -14px #173d3b40`. Active states change tone and receive a small token.
+## Copy and AI
+Use direct instructions and real data. No authored em dashes in visible copy, titles, placeholders, or generated solution formatting. Ollama is instructed to avoid them. Its prose is normalized before caching/display, with literal state names and symbols protected. Canonical engine details are appended without transforming automaton data. Engine interfaces, question bank, account behavior and database schema remain unchanged.
 
-## Shapes
-Circular states are mathematical notation; double rings mean acceptance. Panels have
-gently curved corners, controls smaller corners. Keyboard focus is explicit.
+## Restrictions
+Do not introduce any of the following:
 
-## Components
-Primary buttons are teal with white text. Secondary buttons use botanical tones.
-The graph inspector edits start/final status; transition forms and tables support keyboard
-workflows. Simulation tokens show active NFA branches. Construction locks mutation controls.
-Reduced motion disables decorative animation.
+- Harsh or excessive gradients, radial gradient orbs, neon, rainbow or multicolor UI, generic pastel palettes, or purple-and-black schemes.
+- Pure white surfaces, drop shadows, liquid glass, glassmorphism, blur treatments, or excessively rounded corners.
+- Lucide, sparkle icons, emoji UI elements, ornamental checkmarks, decorative sidebar diagrams, dotted canvas decoration, or checkmark-based bullet lists.
+- Inter, Geist, or Space Grotesk fonts.
+- Colored decorative left stripes, bento grids, decorative generic grids, three feature cards in a row, terminal-window UI, or three-tier pricing sections.
+- Fake testimonials, fabricated claims, fake or nonfunctional product demonstrations, or the copy pattern “It's not X, it's Y”.
+- Animated arrows, decorative hover animation, or animated token entrances.
+- Authored em dashes in interface copy.
 
-## Do's and Don'ts
-- Do preserve the large canvas and clear relationship between machines and feedback.
-- Do show real progress and honest empty states.
-- Do retain alternatives to dragging graph handles.
-- Don't use AI output as a correctness signal.
-- Don't replace the user's light workspace identity when adding screens.
+Circular states, accepting-state rings, static mathematical arrows, and functional progress bars are permitted. No new screens or replacement product workflows are part of this refinement.
+
+## Verification
+Source/dependency scans, type checks, production build and 68 tests pass. Browser checks cover deletion, undo, multi-symbol and epsilon transitions, keyboard selection, simulation, hints, account forms and saved scoring. Design inspection covers 1440px, 390px, and 720px CSS reflow (equivalent to a 1440px viewport at 200%). No horizontal overflow or undersized buttons/fields was found. Text token contrast is at least 5.50:1 on the three light surfaces; border contrast is at least 3.03:1. Audit evidence is recorded in artifacts/design-audit.json. This is a bounded application audit, not full accessibility certification. The bundled Impeccable detector was unavailable.

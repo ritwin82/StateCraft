@@ -1,0 +1,183 @@
+{
+  "reports": [
+    {
+      "width": 1440,
+      "label": "practice",
+      "overflow": false,
+      "smallTargets": [],
+      "effects": []
+    },
+    {
+      "width": 1440,
+      "label": "selected transition",
+      "overflow": false,
+      "smallTargets": [],
+      "effects": []
+    },
+    {
+      "width": 1440,
+      "label": "error",
+      "overflow": false,
+      "smallTargets": [],
+      "effects": []
+    },
+    {
+      "width": 1440,
+      "label": "empty progress",
+      "overflow": false,
+      "smallTargets": [],
+      "effects": []
+    },
+    {
+      "width": 1440,
+      "label": "account",
+      "overflow": false,
+      "smallTargets": [],
+      "effects": []
+    },
+    {
+      "width": 390,
+      "label": "practice",
+      "overflow": false,
+      "smallTargets": [],
+      "effects": []
+    },
+    {
+      "width": 390,
+      "label": "selected transition",
+      "overflow": false,
+      "smallTargets": [],
+      "effects": []
+    },
+    {
+      "width": 390,
+      "label": "error",
+      "overflow": false,
+      "smallTargets": [],
+      "effects": []
+    },
+    {
+      "width": 390,
+      "label": "empty progress",
+      "overflow": false,
+      "smallTargets": [],
+      "effects": []
+    },
+    {
+      "width": 390,
+      "label": "account",
+      "overflow": false,
+      "smallTargets": [],
+      "effects": []
+    },
+    {
+      "width": 720,
+      "label": "practice",
+      "overflow": false,
+      "smallTargets": [],
+      "effects": []
+    },
+    {
+      "width": 720,
+      "label": "selected transition",
+      "overflow": false,
+      "smallTargets": [],
+      "effects": []
+    },
+    {
+      "width": 720,
+      "label": "error",
+      "overflow": false,
+      "smallTargets": [],
+      "effects": []
+    },
+    {
+      "width": 720,
+      "label": "empty progress",
+      "overflow": false,
+      "smallTargets": [],
+      "effects": []
+    },
+    {
+      "width": 720,
+      "label": "account",
+      "overflow": false,
+      "smallTargets": [],
+      "effects": []
+    }
+  ],
+  "contrastChecks": [
+    {
+      "fg": "252B29",
+      "bg": "E8E4DA",
+      "ratio": 11.358701122809284,
+      "minimum": 4.5
+    },
+    {
+      "fg": "505853",
+      "bg": "E8E4DA",
+      "ratio": 5.779715072559334,
+      "minimum": 4.5
+    },
+    {
+      "fg": "235C50",
+      "bg": "E8E4DA",
+      "ratio": 6.085332720169984,
+      "minimum": 4.5
+    },
+    {
+      "fg": "7B8078",
+      "bg": "E8E4DA",
+      "ratio": 3.1802888787176244,
+      "minimum": 3
+    },
+    {
+      "fg": "252B29",
+      "bg": "F1EDE3",
+      "ratio": 12.33528003874171,
+      "minimum": 4.5
+    },
+    {
+      "fg": "505853",
+      "bg": "F1EDE3",
+      "ratio": 6.2766334982606615,
+      "minimum": 4.5
+    },
+    {
+      "fg": "235C50",
+      "bg": "F1EDE3",
+      "ratio": 6.608527015600298,
+      "minimum": 4.5
+    },
+    {
+      "fg": "7B8078",
+      "bg": "F1EDE3",
+      "ratio": 3.4537182992077256,
+      "minimum": 3
+    },
+    {
+      "fg": "252B29",
+      "bg": "E2DFD5",
+      "ratio": 10.815331132381703,
+      "minimum": 4.5
+    },
+    {
+      "fg": "505853",
+      "bg": "E2DFD5",
+      "ratio": 5.5032289066064095,
+      "minimum": 4.5
+    },
+    {
+      "fg": "235C50",
+      "bg": "E2DFD5",
+      "ratio": 5.794226620435791,
+      "minimum": 4.5
+    },
+    {
+      "fg": "7B8078",
+      "bg": "E2DFD5",
+      "ratio": 3.0281523343273844,
+      "minimum": 3
+    }
+  ]
+}
