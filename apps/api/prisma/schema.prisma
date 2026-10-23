@@ -1,0 +1,65 @@
+generator client {
+  provider = "prisma-client-js"
+}
+datasource db {
+  provider = "postgresql"
+  url = env("DATABASE_URL")
+}
+model User {
+  id String @id @default(cuid())
+  email String @unique
+  passwordHash String
+  name String
+  role String @default("student")
+  classCode String
+  createdAt DateTime @default(now())
+  attempts Attempt[]
+  mastery Mastery[]
+  @@map("users")
+}
+model Question {
+  id String @id
+  topic String
+  difficulty Int
+  data Json
+  attempts Attempt[]
+  @@map("questions")
+}
+model Attempt {
+  id String @id @default(cuid())
+  userId String
+  questionId String
+  automaton Json
+  correct Boolean
+  score Float
+  hintLevel Int @default(0)
+  createdAt DateTime @default(now())
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  question Question @relation(fields: [questionId], references: [id])
+  misconceptions Misconception[]
+  @@index([userId, createdAt])
+  @@map("attempts")
+}
+model Misconception {
+  id String @id @default(cuid())
+  attemptId String
+  name String
+  attempt Attempt @relation(fields: [attemptId], references: [id], onDelete: Cascade)
+  @@map("misconceptions")
+}
+model Mastery {
+  id String @id @default(cuid())
+  userId String
+  topic String
+  rating Float @default(900)
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  @@unique([userId, topic])
+  @@map("mastery")
+}
+model HintUsage {
+  userId String
+  questionId String
+  level Int
+  @@id([userId, questionId])
+  @@map("hint_usage")
+}

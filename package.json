@@ -1,0 +1,5 @@
+{
+  "name": "automata-tutor", "private": true, "type": "module", "packageManager": "pnpm@11.25.0",
+  "scripts": { "dev": "concurrently -n api,web -c cyan,green \"pnpm --filter @tutor/api dev\" \"pnpm --filter @tutor/web dev\"", "test": "vitest run", "typecheck": "pnpm -r typecheck", "build": "pnpm --filter @tutor/engine build && pnpm --filter @tutor/api build && pnpm --filter @tutor/web build", "evaluate": "tsx scripts/evaluate.ts", "db:generate": "pnpm --filter @tutor/api db:generate", "db:push": "pnpm --filter @tutor/api db:push", "db:seed": "pnpm --filter @tutor/api db:seed" },
+  "devDependencies": { "typescript": "^5.9.3", "vitest": "^3.2.4", "tsx": "^4.20.6", "concurrently": "^9.2.1", "@types/node": "^22.19.0", "@playwright/test": "^1.56.1" }
+}

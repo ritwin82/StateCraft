@@ -1,0 +1,21 @@
+{
+  "equivalence": {
+    "agreement": 550,
+    "pairs": 550,
+    "maxLength": 10,
+    "milliseconds": 40
+  },
+  "diagnosis": {
+    "recovered": 100,
+    "total": 100,
+    "exactOriginalRestored": 100,
+    "milliseconds": 83
+  },
+  "hints": {
+    "mode": "100 adversarial fixtures (not live model generation)",
+    "leakFailures": 0,
+    "ollamaResponses": 0
+  },
+  "seedQuestions": 120,
+  "totalMilliseconds": 762
+}

@@ -1,0 +1,6 @@
+{
+  "name": "@tutor/api", "private": true, "type": "module",
+  "scripts": { "dev": "tsx watch src/server.ts", "start": "tsx src/server.ts", "build": "tsc", "typecheck": "tsc --noEmit", "db:generate": "prisma generate", "db:push": "prisma db push", "db:seed": "tsx prisma/seed.ts", "instructor": "tsx prisma/instructor.ts" },
+  "dependencies": { "@tutor/engine": "workspace:*", "@prisma/client": "6.19.0", "express": "^5.1.0", "express-rate-limit": "^8.2.1", "helmet": "^8.1.0", "jsonwebtoken": "^9.0.2", "zod": "^3.25.76", "dotenv": "^17.2.3" },
+  "devDependencies": { "prisma": "6.19.0", "@types/express": "^5.0.5", "@types/jsonwebtoken": "^9.0.10", "supertest": "^7.1.4", "@types/supertest": "^6.0.3" }
+}

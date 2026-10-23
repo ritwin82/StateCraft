@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-23T09:20:00Z",
+  "title": "Design System: Statecraft",
+  "extensions": {
+    "shadows": [{ "name": "floating-inspector", "value": "0 12px 32px -14px #173d3b40", "purpose": "Transient graph editing controls." }],
+    "motion": [{ "name": "token-arrive", "value": "320ms cubic-bezier(.2,.9,.3,1)", "purpose": "Reveal active simulation states; disabled for reduced motion." }],
+    "breakpoints": [{ "name": "compact-rail", "value": "1000px" }, { "name": "stacked-workspace", "value": "780px" }, { "name": "top-navigation", "value": "560px" }]
+  },
+  "components": [],
+  "narrative": { "northStar": "A calm graph workspace that makes every state and transition legible." }
+}

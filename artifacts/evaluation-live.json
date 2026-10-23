@@ -1,0 +1,21 @@
+{
+  "equivalence": {
+    "agreement": 550,
+    "pairs": 550,
+    "maxLength": 10,
+    "milliseconds": 74
+  },
+  "diagnosis": {
+    "recovered": 100,
+    "total": 100,
+    "exactOriginalRestored": 100,
+    "milliseconds": 145
+  },
+  "hints": {
+    "mode": "live Ollama with fallback",
+    "leakFailures": 0,
+    "ollamaResponses": 100
+  },
+  "seedQuestions": 30,
+  "totalMilliseconds": 56882
+}

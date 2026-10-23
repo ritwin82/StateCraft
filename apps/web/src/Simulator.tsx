@@ -1,0 +1,13 @@
+import { Play, Pause, SkipForward, RotateCcw } from 'lucide-react';
+import type { SimulationResult } from '@tutor/engine';
+export function Simulator({ input, setInput, simulation, step, setStep, playing, setPlaying, run, error }: { input: string; setInput: (s: string) => void; simulation: SimulationResult | null; step: number; setStep: (n: number) => void; playing: boolean; setPlaying: (b: boolean) => void; run: () => void; error: string }) {
+  const trace = simulation?.trace[step];
+  const consumed = simulation?.trace.slice(0, step + 1).filter(s => s.kind === 'consume').length ?? 0;
+  return <section className="simulator" aria-label="String simulator"><div className="sim-heading"><h3>Test a string</h3><span>Watch your machine think.</span></div>
+    <div className="sim-controls"><form onSubmit={e => { e.preventDefault(); run(); }}><label className="sr-only" htmlFor="test-string">Input string</label><input id="test-string" value={input} onChange={e => setInput(e.target.value)} placeholder="Try aab · leave blank for ε" autoComplete="off" spellCheck={false}/><button type="submit" className="secondary">Run string</button></form>
+      <div className="playback"><button className="icon-button" aria-label="Restart simulation" disabled={!simulation} onClick={() => { setStep(0); setPlaying(false); }}><RotateCcw size={17}/></button><button className="play-button" aria-label={playing ? 'Pause simulation' : 'Play simulation'} disabled={!simulation} onClick={() => setPlaying(!playing)}>{playing ? <Pause size={17}/> : <Play size={17}/>}</button><button className="icon-button" aria-label="Next simulation step" disabled={!simulation || step >= simulation.trace.length - 1} onClick={() => { setPlaying(false); setStep(step + 1); }}><SkipForward size={18}/></button></div>
+    </div>
+    {error && <p className="error" role="alert">{error}</p>}
+    <div className="trace-strip" aria-live="polite">{simulation ? <><div className="input-tape">{[...input].length ? [...input].map((symbol, i) => <span key={i} className={i < consumed ? 'consumed' : i === consumed ? 'current' : ''}>{symbol}</span>) : <span>ε</span>}</div><span className="trace-state">{trace?.kind === 'epsilon' ? 'ε-closure' : `Step ${consumed}`} · {trace?.activeStates.join(', ') || 'no active states'}</span>{step === simulation.trace.length - 1 && <span className={`status-pill ${simulation.accepted ? 'success' : 'neutral'}`}>{simulation.accepted ? 'Accepted' : 'Rejected'}</span>}</> : <><span className="idle-dot"/><span>Enter a string to follow each transition, one step at a time.</span></>}</div>
+  </section>;
+}

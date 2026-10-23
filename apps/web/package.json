@@ -1,0 +1,6 @@
+{
+  "name": "@tutor/web", "private": true, "type": "module",
+  "scripts": { "dev": "vite --host 127.0.0.1", "build": "tsc --noEmit && vite build", "typecheck": "tsc --noEmit", "preview": "vite preview --host 127.0.0.1" },
+  "dependencies": { "@tutor/engine": "workspace:*", "react": "^19.2.0", "react-dom": "^19.2.0", "@xyflow/react": "^12.9.2", "zustand": "^5.0.8", "lucide-react": "^0.468.0", "@fontsource/dm-sans": "^5.2.8", "@fontsource/manrope": "^5.2.8" },
+  "devDependencies": { "vite": "^6.4.1", "@vitejs/plugin-react": "^4.7.0", "tailwindcss": "^4.1.17", "@tailwindcss/vite": "^4.1.17", "@types/react": "^19.2.2", "@types/react-dom": "^19.2.2" }
+}
